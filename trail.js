@@ -1,228 +1,210 @@
-// Question 1 - Variables
+// Task 1 - Employee Eligibility
 
-let name1 = "Vishnu";
-const course1 = "JavaScript";
-var age1 = 25;
-let mark1 = 85;
+let name = prompt("Enter employee name");
+let age = Number(prompt("Enter age"));
+let exp = Number(prompt("Enter experience"));
+let salary = Number(prompt("Enter salary"));
 
-console.log(name1);
-console.log(age1);
-console.log(course1);
-console.log(mark1);
-
-
-// Question 2 - User Input
-
-let name2 = prompt("Enter your name");
-let age2 = prompt("Enter your age");
-
-console.log(name2);
-alert(age2);
+if (age < 21) {
+    console.log("Employee is not eligible because age is less than 21");
+} else if (exp < 1) {
+    console.log("Employee is not eligible because experience is less than 1 year");
+} else if (salary < 20000) {
+    console.log("Employee is not eligible because salary is less than 20000");
+} else {
+    console.log("Employee is eligible");
+}
 
 
-// Question 3 - Data Types
+// Task 2 - ATM Withdrawal
 
-let a = "Hello";
-let b = 100;
-let c = true;
-let d;
-let e = null;
+let balance = 10000;
+let amount = Number(prompt("Enter withdrawal amount"));
 
-console.log(a);
-console.log(typeof a);
+if (amount <= 0) {
+    console.log("Invalid withdrawal amount");
+} else if (amount > balance) {
+    console.log("Insufficient balance");
+} else if (amount % 100 != 0) {
+    console.log("Amount should be a multiple of 100");
+} else {
+    balance = balance - amount;
 
-console.log(b);
-console.log(typeof b);
-
-console.log(c);
-console.log(typeof c);
-
-console.log(d);
-console.log(typeof d);
-
-console.log(e);
-console.log(typeof e);
+    console.log("Withdrawal successful");
+    console.log("Remaining balance: ₹" + balance);
+}
 
 
-// Question 4 - Array
+// Task 3 - Login System with 3 Attempts
 
-let items = ["Shirt", "Pant", "Shoes", "Watch", "Bag", "Cap"];
+let correctUsername = "admin";
+let correctPassword = "12345";
 
-console.log(items[0]);
-console.log(items[2]);
-console.log(items[5]);
-console.log(items);
+let count = 1;
+let login = false;
+
+while (count <= 3) {
+
+    let username = prompt("Enter username");
+    let password = prompt("Enter password");
+
+    if (username == correctUsername && password == correctPassword) {
+        console.log("Login successful");
+        login = true;
+        break;
+    } else {
+        console.log("Wrong username or password");
+        count++;
+    }
+}
+
+if (login == false) {
+    console.log("Account locked");
+}
 
 
-// Question 5 - Object
+// Task 4 - Student Grade System
 
-let emp = {
-    name: "Vishnu",
-    age: 25,
-    role: "Developer",
-    salary: 30000
+let math = Number(prompt("Enter Math mark"));
+let english = Number(prompt("Enter English mark"));
+let science = Number(prompt("Enter Science mark"));
+let social = Number(prompt("Enter Social mark"));
+let computer = Number(prompt("Enter Computer mark"));
+
+let total = math + english + science + social + computer;
+let average = total / 5;
+
+console.log("Total = " + total);
+console.log("Average = " + average);
+
+if (average >= 90) {
+    console.log("Grade = A");
+} else if (average >= 80) {
+    console.log("Grade = B");
+} else if (average >= 70) {
+    console.log("Grade = C");
+} else if (average >= 60) {
+    console.log("Grade = D");
+} else {
+    console.log("Grade = F");
+}
+
+
+// Task 5 - Number Pattern
+
+// Pattern 1
+
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+
+
+// Pattern 2
+
+for (let j = 5; j >= 1; j--) {
+    console.log(j);
+}
+
+
+// Pattern 3
+
+let text = "";
+
+for (let k = 1; k <= 5; k++) {
+    text = text + k + " ";
+}
+
+console.log(text);
+
+
+// Task 6 - Shopping Cart
+
+let products = ["Laptop", "Mouse", "Keyboard", "Monitor"];
+let prices = [50000, 1000, 2000, 15000];
+
+let totalPrice = 0;
+
+for (let i = 0; i < products.length; i++) {
+    console.log(products[i] + " - ₹" + prices[i]);
+
+    totalPrice = totalPrice + prices[i];
+}
+
+console.log("Total = ₹" + totalPrice);
+
+
+// Task 7 - Employee Object
+
+let employee = {
+    name: "Arun",
+    empId: "STK-101",
+    role: "Software Engineer",
+    salary: 45000
 };
 
-console.log(emp.name);
-console.log(emp.age);
-console.log(emp.role);
-console.log(emp.salary);
-
-
-// Question 6 - Arithmetic Operator
-
-let price = 500;
-let qty = 3;
-
-let total = price * qty;
-let discount = 100;
-let final = total - discount;
-
-console.log(total);
-console.log(discount);
-console.log(final);
-
-console.log(price + qty);
-console.log(price - qty);
-console.log(price * qty);
-console.log(price / qty);
-
-
-// Question 7 - Comparison Operators
-
-console.log(25 > 20);
-console.log(15 < 10);
-console.log(50 == "50");
-console.log(50 === "50");
-console.log(100 != "100");
-console.log(100 !== "100");
-
-
-// Question 8 - Logical Operators
-
-console.log(10 > 5 && 20 > 15 || 5 > 10);
-
-console.log(10 < 5 || 20 >= 20 && 5 == "5");
-
-console.log(15 === "15" || 10 > 5 && 8 < 3);
-
-console.log(20 >= 20 && 5 !== "5" || 10 < 5);
-
-console.log(25 < 20 || 30 == "30" && 10 >= 10);
-
-
-// Question 9 - Ternary Operator
-
-let pass = true;
-
-let result = pass ? "Login successful" : "Invalid password";
-
-console.log(result);
-
-
-// Question 10 - Type Casting
-
-let x = "80";
-let y = "70";
-
-x = Number(x);
-y = Number(y);
-
-let sum = x + y;
-
-console.log(sum);
-
-
-// Question 11 - Voting Eligibility
-
-let age3 = 20;
-
-if (age3 >= 18) {
-    console.log("You can vote");
-} else {
-    console.log("You cannot vote");
+for (let key in employee) {
+    console.log(key + " : " + employee[key]);
 }
 
 
-// Question 12 - Student Grade
+function calculateBonus() {
 
-let mark2 = 85;
-
-if (mark2 > 100 || mark2 < 0) {
-    console.log("Invalid Mark");
-} else if (mark2 >= 90) {
-    console.log("A Grade");
-} else if (mark2 >= 75) {
-    console.log("B Grade");
-} else if (mark2 >= 50) {
-    console.log("C Grade");
-} else {
-    console.log("Fail");
-}
-
-
-// Question 13 - Time Greeting
-
-let time = 15;
-
-if (time >= 1 && time <= 6) {
-    console.log("Early Morning");
-} else if (time >= 7 && time <= 12) {
-    console.log("Good Morning");
-} else if (time >= 13 && time <= 15) {
-    console.log("Good Afternoon");
-} else if (time >= 16 && time <= 19) {
-    console.log("Good Evening");
-} else if (time >= 20 && time <= 24) {
-    console.log("Good Night");
-} else {
-    console.log("Invalid Time");
-}
-
-
-// Question 14 - Nested If
-
-let age4 = 22;
-let height = 175;
-let weight = 72;
-
-if (age4 >= 21) {
-
-    if (height >= 170) {
-
-        if (weight >= 70) {
-            console.log("You are eligible");
-        } else {
-            console.log("Weight is less than 70 kg");
-        }
-
+    if (employee.salary >= 40000) {
+        console.log("Bonus = 5000");
     } else {
-        console.log("Height is less than 170 cm");
+        console.log("Bonus = 3000");
     }
-
-} else {
-    console.log("Age is less than 21");
 }
 
+calculateBonus();
 
-// Question 15 - Switch
 
-let light = "green";
+// Task 8 - Bank Account Functions
 
-switch (light) {
+let money = 10000;
 
-    case "red":
-        console.log("Stop the vehicle");
-        break;
-
-    case "yellow":
-        console.log("Get ready");
-        break;
-
-    case "green":
-        console.log("Go");
-        break;
-
-    default:
-        console.log("Invalid traffic light");
+function deposit(amount) {
+    money = money + amount;
+    console.log("Deposited: ₹" + amount);
 }
+
+function withdraw(amount) {
+    money = money - amount;
+    console.log("Withdrawn: ₹" + amount);
+}
+
+function checkBalance() {
+    console.log("Current Balance: ₹" + money);
+}
+
+deposit(5000);
+withdraw(2000);
+checkBalance();
+
+
+// Task 9 - Callback Calculator
+
+function add(a, b) {
+    return a + b;
+}
+
+function sub(a, b) {
+    return a - b;
+}
+
+function mul(a, b) {
+    return a * b;
+}
+
+function div(a, b) {
+    return a / b;
+}
+
+function calculate(callback, a, b) {
+    return callback(a, b);
+}
+
+console.log(calculate(add, 20, 10));
+console.log(calculate(sub, 20, 10));
+console.log(calculate(mul, 20, 10));
+console.log(calculate(div, 20, 10));
